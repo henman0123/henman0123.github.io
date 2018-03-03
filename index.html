@@ -1,0 +1,57 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>お帰りなさい、マスター</title>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+<body>
+    <!--<img src="assets/ulbiv2.png"> -->
+    <div id="container">
+        <div id="blocked">
+            <div id="logo">おかえり！</div>
+            <div id="dial">
+                <table>
+
+                    <tr>
+                        <td>most used</td>
+                        <td arr>»</td>
+                        <td lnk><a  href="http://bangumi.tv/">bangumi</a></td>
+                        <td lnk><a  href="http://www.nicovideo.jp/ranking/fav/daily/sing?matrix_menu">niconico</a></td>
+                        <td lnk><a  href="http://bangumi.bilibili.com">bilibili</a></td>
+                        <td lnk><a  href="http://www.pixiv.net">pixiv</a></td>
+                        <td lnk><a  href="https://mail.google.com/mail/u/0/#inbox">gmail</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="search">
+                <form method="get" action="http://www.google.com/search">
+                    <input name="q" type="text" placeholder="Google" />
+                </form>
+            </div>
+        </div>
+<script type="text/javascript" src="assets/jquery.min.js"></script>
+<script type="text/javascript">
+var cl = function() {
+	var ca = ["#a66959", "#769070", "#ac8d6e", "#607a86", "#8a757e", "#60867f", "#c4c4b5"];
+	$("td[lnk]").each(function(){
+		var r = ca[~~(Math.random() * ca.length)];
+		$(this).css("background-color", r);
+	});
+};
+var rl = function(){
+	var l = $('#logo');
+	var cr = l.text().split("");
+	l.empty();
+	$.each(cr, function (i, e) {
+	    l.append('<span>' + e + '</span>');
+	});
+}
+$(function(){
+	var a = setInterval(cl,200);
+	var b = rl();
+});
+</script>
+</body>
+
+</html>
