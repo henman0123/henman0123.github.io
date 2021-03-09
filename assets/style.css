@@ -20,9 +20,7 @@ a:focus{
  outline: none;
 }
 
-a:focus:before{
- content: " > ";
-}
+
 
 #container {
 display: flex;
@@ -64,10 +62,8 @@ border-collapse: collapse;
 }
 
 td {
-padding: 0px;
 border-spacing: 0;
 margin: 0;
-padding: 5px;
 width: 50px;
 }
 td[lnk]{
@@ -88,6 +84,7 @@ width: 200px;
 td a{
 color:#111;
 display:block;
+padding: 5px;
 }
 
 #search{
