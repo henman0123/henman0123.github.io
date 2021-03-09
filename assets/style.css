@@ -86,7 +86,8 @@ width: 200px;
 }
 
 td a{
-color:#111
+color:#111;
+display:block;
 }
 
 #search{
