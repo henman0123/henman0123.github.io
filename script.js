@@ -5,9 +5,9 @@ const bookmarksData = [
         items: [
             // 注意：圖片 Placeholder 已更新為 120x120
             { name: "Twitter", desc: "What's happening?", url: "https://x.com/home", image: "images/twitter.webp" },
-            { name: "Steam", desc: "Ultimate gaming platform", url: "https://store.steampowered.com/", image: "images/steam.jpg" },
-            { name: "Bangumi", desc: "Anime & manga tracker", url: "https://bangumi.tv/", image: "https://placehold.co/120x120/f09199/ffffff?text=Bgm" },
-            { name: "Keylol", desc: "Game community", url: "https://keylol.com/", image: "https://placehold.co/120x120/333/fff?text=Key" },
+            { name: "Steam", desc: "Ultimate gaming platform", url: "https://store.steampowered.com/", image: "images/steam.png" },
+            { name: "Bangumi", desc: "Anime & manga tracker", url: "https://bangumi.tv/", image: "images/bangumi.png" },
+            { name: "Keylol", desc: "Game community", url: "https://keylol.com/", image: "images/keylol.png" },
             { name: "Pixiv", desc: "Illustration community", url: "https://www.pixiv.net/", image: "https://placehold.co/120x120/0096fa/fff?text=Pixiv" },
             { name: "Drive", desc: "Google Drive storage", url: "https://drive.google.com/drive/my-drive", image: "https://placehold.co/120x120/1FA463/fff?text=Drive" },
             { name: "Bilibili", desc: "Anime streaming", url: "https://www.bilibili.com/anime", image: "https://placehold.co/120x120/00A1D6/fff?text=Bili" },
@@ -16,11 +16,11 @@ const bookmarksData = [
             { name: "Telegram", desc: "Cloud-based messaging", url: "https://web.telegram.org/", image: "https://placehold.co/120x120/2481CC/fff?text=TG" },
             { name: "Notion", desc: "All-in-one workspace", url: "https://www.notion.so/", image: "https://placehold.co/120x120/000/fff?text=Notion" },
             { name: "YouTube", desc: "Broadcast Yourself", url: "https://www.youtube.com/", image: "https://placehold.co/120x120/FF0000/fff?text=YT" },
-            { name: "YT Music", desc: "Music streaming", url: "https://music.youtube.com/", image: "https://placehold.co/120x120/FF0000/fff?text=Music" },
+            { name: "YT Music", desc: "Music streaming", url: "https://music.youtube.com/", image: "images/Youtube_Music_icon.svg" },
             { name: "Darmoshark", desc: "Gaming peripherals", url: "https://www.darmoshark.cc/#/" , image: "https://placehold.co/120x120/333/fff?text=Darmo" },
             { name: "Discord", desc: "Talk, chat, hang out", url: "https://discord.com/channels/506071363602219010/506071364071849996", image: "https://placehold.co/120x120/5865F2/fff?text=Discord" },
-            { name: "Schwab", desc: "Financial services", url: "https://client.schwab.com/Areas/Access/Login?SessionTimeOut=y&ReturnUrl=%2fclientapps%2faccounts%2fsummary%2f", image: "https://placehold.co/120x120/00a0dd/fff?text=Schwab" },
-            { name: "Time.is", desc: "Exact time now", url: "https://time.is/", image: "https://placehold.co/120x120/333/fff?text=Time" },
+            { name: "Schwab", desc: "Financial services", url: "https://client.schwab.com/Areas/Access/Login?SessionTimeOut=y&ReturnUrl=%2fclientapps%2faccounts%2fsummary%2f", image: "images/charlesSCHWAB.png" },
+            { name: "Time.is", desc: "Exact time now", url: "https://time.is/", image: "images/timeis.png" },
             { name: "Gemini", desc: "Google AI assistant", url: "https://gemini.google.com/app", image: "images/gemini.svg" },
             { name: "Keep", desc: "Note taking", url: "https://keep.google.com/", image: "https://placehold.co/120x120/FFBB00/fff?text=Keep" }
         ]
