@@ -1,0 +1,225 @@
+:root {
+    /* --- 核心配色 --- */
+    --bg-color: #121212;
+    --card-bg: rgba(45, 45, 45, 0.85); /* 半透明卡片背景 */
+    --card-hover: rgba(70, 70, 70, 0.95);
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --search-bg: rgba(0, 0, 0, 0.6);
+
+    /* --- 背景圖片設定 (請在此更換網址) --- */
+    --bg-image: url('https://files.seeusercontent.com/2026/02/15/wK6z/wallpaper.png');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-primary);
+    
+    /* --- 頁面垂直與水平置中 --- */
+    min-height: 100vh;        /* 確保高度填滿視窗 */
+    display: flex;            /* 啟用 Flexbox */
+    flex-direction: column;   /* 垂直排列 */
+    justify-content: center;  /* 垂直置中 */
+    align-items: center;      /* 水平置中 */
+    
+    /* --- 背景設定 --- */
+    background: 
+        var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    overflow-x: auto; /* 允許橫向卷軸 (當視窗真的太窄時) */
+}
+
+/* --- 主要容器 --- */
+.container {
+    width: 100%;
+    /* 為了在 2K 螢幕上容納 6 個 312px 卡片 + 間距，設為 2100px */
+    max-width: 2100px; 
+    padding: 40px 20px;
+    
+    /* 稍微抵銷卡片下方的 margin，讓視覺中心更準確 */
+    padding-bottom: 0; 
+}
+
+/* --- 搜尋欄 --- */
+header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.search-box {
+    width: 100%;
+    max-width: 600px; /* 最大寬度限制 */
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 15px 25px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: var(--search-bg);
+    color: white;
+    font-size: 1.1rem;
+    outline: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.search-box input:focus {
+    background: rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.5);
+    box-shadow: 0 0 20px rgba(255,255,255,0.15);
+}
+
+/* --- 網格系統 --- */
+.grid {
+    display: grid;
+    /* RWD 核心：螢幕夠寬就塞，不夠就換行 */
+    grid-template-columns: repeat(auto-fill, 312px);
+    gap: 20px;
+    justify-content: center; /* 讓整個網格在畫面中居中 */
+}
+
+/* --- 卡片設計 --- */
+.card {
+    width: 312px;
+    height: 120px;         /* 固定卡片本體高度 */
+    margin-bottom: 80px;   /* 卡片下方的透明留白 (依您的要求設為 80px) */
+    
+    background: var(--card-bg);
+    backdrop-filter: blur(12px); /* 毛玻璃特效 */
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    
+    text-decoration: none;
+    display: flex;         /* 橫向排列 (左圖右文) */
+    align-items: flex-start;
+    
+    overflow: hidden;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                box-shadow 0.25s, 
+                border-color 0.25s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.card:hover {
+    transform: translateY(-6px); /* 懸浮上移 */
+    background: var(--card-hover);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+    border-color: rgba(255,255,255,0.3);
+    z-index: 10;
+}
+
+/* 卡片左側圖片容器 */
+.card-img-wrapper {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* 懸浮時圖片微放大效果 */
+.card:hover .card-img {
+    transform: scale(1.08);
+}
+
+/* 卡片右側文字容器 */
+.card-info {
+    flex: 1;
+    height: 100%;
+    padding: 18px 16px 0 16px; /* 上方 padding 稍微調整讓視覺平衡 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0; /* 防止 flex 子元素撐開容器 */
+}
+
+.card-title {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-desc {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    
+    /* 限制顯示兩行 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- 手機版專屬 RWD 優化 --- */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 60px 20px; /* 手機版不需要垂直置中，給上方多點空間 */
+        display: block;     /* 取消 flex 置中，改為正常流 */
+    }
+    
+    body {
+        display: block;     /* 手機版取消強制全螢幕置中，改為自然滾動 */
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr; /* 強制單欄 */
+        gap: 12px;
+    }
+
+    .card {
+        width: 100%;       /* 寬度填滿螢幕 */
+        height: auto;      /* 高度自動 */
+        min-height: 80px;
+        margin-bottom: 0;  /* 【重要】手機版移除下方 80px 留白 */
+        align-items: center;
+    }
+
+    .card-img-wrapper {
+        width: 80px;       /* 縮小圖片 */
+        height: 80px;
+    }
+    
+    .card-info {
+        padding: 0 15px;   /* 調整內距 */
+        justify-content: center;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+    }
+    
+    .search-box input {
+        padding: 12px 20px;
+    }
+}
