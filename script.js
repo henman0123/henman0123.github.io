@@ -4,8 +4,8 @@ const bookmarksData = [
         category: "Most Used",
         items: [
             // 注意：圖片 Placeholder 已更新為 120x120
-            { name: "Twitter", desc: "What's happening?", url: "https://x.com/home", image: "https://files.seeusercontent.com/2026/02/15/4aTj/twitter.webp" },
-            { name: "Steam", desc: "Ultimate gaming platform", url: "https://store.steampowered.com/", image: "https://placehold.co/120x120/171a21/c7d5e0?text=Steam" },
+            { name: "Twitter", desc: "What's happening?", url: "https://x.com/home", image: "images/twitter.webp" },
+            { name: "Steam", desc: "Ultimate gaming platform", url: "https://store.steampowered.com/", image: "images/steam.jpg" },
             { name: "Bangumi", desc: "Anime & manga tracker", url: "https://bangumi.tv/", image: "https://placehold.co/120x120/f09199/ffffff?text=Bgm" },
             { name: "Keylol", desc: "Game community", url: "https://keylol.com/", image: "https://placehold.co/120x120/333/fff?text=Key" },
             { name: "Pixiv", desc: "Illustration community", url: "https://www.pixiv.net/", image: "https://placehold.co/120x120/0096fa/fff?text=Pixiv" },
@@ -21,7 +21,7 @@ const bookmarksData = [
             { name: "Discord", desc: "Talk, chat, hang out", url: "https://discord.com/channels/506071363602219010/506071364071849996", image: "https://placehold.co/120x120/5865F2/fff?text=Discord" },
             { name: "Schwab", desc: "Financial services", url: "https://client.schwab.com/Areas/Access/Login?SessionTimeOut=y&ReturnUrl=%2fclientapps%2faccounts%2fsummary%2f", image: "https://placehold.co/120x120/00a0dd/fff?text=Schwab" },
             { name: "Time.is", desc: "Exact time now", url: "https://time.is/", image: "https://placehold.co/120x120/333/fff?text=Time" },
-            { name: "Gemini", desc: "Google AI assistant", url: "https://gemini.google.com/app", image: "https://placehold.co/120x120/4E86F6/fff?text=Gemini" },
+            { name: "Gemini", desc: "Google AI assistant", url: "https://gemini.google.com/app", image: "images/gemini.svg" },
             { name: "Keep", desc: "Note taking", url: "https://keep.google.com/", image: "https://placehold.co/120x120/FFBB00/fff?text=Keep" }
         ]
     }

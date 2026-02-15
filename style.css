@@ -128,18 +128,24 @@ header {
     width: 120px;
     height: 120px;
     flex-shrink: 0;
-    background-color: #000;
+    
+    /* 關鍵：在圖片還沒出來前，先顯示一個深灰色背景，而不是白色或透明 */
+    background-color: #2a2a2a; 
+    
     overflow: hidden;
 }
 
+/* 2. 圖片本身的轉場 */
 .card-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    
+    /* 讓圖片載入時不會「閃」一下，而是配合瀏覽器渲染 */
+    /* 如果您想要圖片有「淡入」效果，可以搭配 JS，但通常本地圖片夠快就不需要 */
     transition: transform 0.5s ease;
 }
-
 /* 懸浮時圖片微放大效果 */
 .card:hover .card-img {
     transform: scale(1.08);
