@@ -3,26 +3,161 @@ const bookmarksData = [
     {
         category: "Most Used",
         items: [
-            // 注意：圖片 Placeholder 已更新為 120x120
-            { name: "Twitter", desc: "What's happening?", url: "https://x.com/home", image: "images/twitter.webp" },
-            { name: "Steam", desc: "Ultimate gaming platform", url: "https://store.steampowered.com/", image: "images/steam.png" },
-            { name: "Bangumi", desc: "Anime & manga tracker", url: "https://bangumi.tv/", image: "images/bangumi.png" },
-            { name: "Keylol", desc: "Game community", url: "https://keylol.com/", image: "images/keylol.png" },
-            { name: "Pixiv", desc: "Illustration community", url: "https://www.pixiv.net/", image: "https://placehold.co/120x120/0096fa/fff?text=Pixiv" },
-            { name: "Drive", desc: "Google Drive storage", url: "https://drive.google.com/drive/my-drive", image: "https://placehold.co/120x120/1FA463/fff?text=Drive" },
-            { name: "Bilibili", desc: "Anime streaming", url: "https://www.bilibili.com/anime", image: "https://placehold.co/120x120/00A1D6/fff?text=Bili" },
-            { name: "Folo", desc: "Information hub", url: "https://app.folo.is/timeline/articles/all/pending", image: "images/folo.png" },
-            { name: "NGA", desc: "Elite gamer forum", url: "https://bbs.nga.cn/", image: "images/NGA.png" },
-            { name: "Telegram", desc: "Cloud-based messaging", url: "https://web.telegram.org/", image: "https://placehold.co/120x120/2481CC/fff?text=TG" },
-            { name: "Notion", desc: "All-in-one workspace", url: "https://www.notion.so/", image: "https://placehold.co/120x120/000/fff?text=Notion" },
-            { name: "YouTube", desc: "Broadcast Yourself", url: "https://www.youtube.com/", image: "https://placehold.co/120x120/FF0000/fff?text=YT" },
-            { name: "YT Music", desc: "Music streaming", url: "https://music.youtube.com/", image: "images/Youtube_Music_icon.svg" },
-            { name: "Darmoshark", desc: "Gaming peripherals", url: "https://www.darmoshark.cc/#/" , image: "https://placehold.co/120x120/333/fff?text=Darmo" },
-            { name: "Discord", desc: "Talk, chat, hang out", url: "https://discord.com/channels/506071363602219010/506071364071849996", image: "https://placehold.co/120x120/5865F2/fff?text=Discord" },
-            { name: "Schwab", desc: "Financial services", url: "https://client.schwab.com/Areas/Access/Login?SessionTimeOut=y&ReturnUrl=%2fclientapps%2faccounts%2fsummary%2f", image: "images/charlesSCHWAB.png" },
-            { name: "Time.is", desc: "Exact time now", url: "https://time.is/", image: "images/timeis.png" },
-            { name: "Gemini", desc: "Google AI assistant", url: "https://gemini.google.com/app", image: "images/gemini.svg" },
-            { name: "Keep", desc: "Note taking", url: "https://keep.google.com/", image: "https://placehold.co/120x120/FFBB00/fff?text=Keep" }
+            // 1. X (Twitter)
+            { 
+                name: "X (Twitter)", 
+                desc: "What's happening?", 
+                url: "https://x.com/home", 
+                image: "images/twitter.webp", 
+                bgColor: "#000000",
+            },
+            // 2. Steam
+            { 
+                name: "Steam", 
+                desc: "Ultimate gaming platform", 
+                url: "https://store.steampowered.com/", 
+                image: "images/steam.png", 
+                bgColor: "#171a21", 
+                padding: "15px"
+            },
+            // 3. Bangumi
+            { 
+                name: "Bangumi", 
+                desc: "Anime & manga tracker", 
+                url: "https://bangumi.tv/", 
+                image: "images/bangumi.png",
+                // 沒設定 bgColor 則使用 CSS 預設
+            },
+            // 4. Keylol
+            { 
+                name: "Keylol", 
+                desc: "Game community", 
+                url: "https://keylol.com/", 
+                image: "images/keylol.png" 
+            },
+            // 5. Pixiv
+            { 
+                name: "Pixiv", 
+                desc: "Illustration community", 
+                url: "https://www.pixiv.net/", 
+                image: "images/pixiv.png", 
+                bgColor: "#0096fa", 
+                padding: "10px"
+            },
+            // 6. Google Drive
+            { 
+                name: "Drive", 
+                desc: "Google Drive storage", 
+                url: "https://drive.google.com/drive/my-drive", 
+                image: "images/drive.png" 
+            },
+            // 7. Bilibili
+            { 
+                name: "Bilibili", 
+                desc: "Anime streaming", 
+                url: "https://www.bilibili.com/anime", 
+                image: "images/bilibili.png", 
+                bgColor: "#00A1D6", 
+                padding: "15px"
+            },
+            // 8. Folo
+            { 
+                name: "Folo", 
+                desc: "Information hub", 
+                url: "https://app.folo.is/timeline/articles/all/pending", 
+                bgColor: "#FF5C00", 
+                image: "images/folo.png" 
+            },
+            // 9. NGA
+            { 
+                name: "NGA", 
+                desc: "Elite gamer forum", 
+                url: "https://bbs.nga.cn/", 
+                bgColor: "#591804", 
+                image: "images/nga.png" 
+            },
+            // 10. Telegram
+            { 
+                name: "Telegram", 
+                desc: "Cloud-based messaging", 
+                url: "https://web.telegram.org/", 
+                image: "images/telegram.png", 
+                bgColor: "#2481CC", 
+                padding: "20px"
+            },
+            // 11. Notion
+            { 
+                name: "Notion", 
+                desc: "All-in-one workspace", 
+                url: "https://www.notion.so/", 
+                image: "images/notion.png", 
+                bgColor: "#FFFFFF", 
+                padding: "15px"
+            },
+            // 12. YouTube
+            { 
+                name: "YouTube", 
+                desc: "Broadcast Yourself", 
+                url: "https://www.youtube.com/", 
+                image: "images/youtube.png", 
+                bgColor: "#FFFFFF", 
+                padding: "20px"
+            },
+            // 13. YouTube Music
+            { 
+                name: "YT Music", 
+                desc: "Music streaming", 
+                url: "https://music.youtube.com/", 
+                image: "images/ytmusic.png" 
+            },
+            // 14. Darmoshark
+            { 
+                name: "Darmoshark", 
+                desc: "Gaming peripherals", 
+                url: "https://www.darmoshark.cc/#/", 
+                image: "images/darmoshark.png" 
+            },
+            // 15. Discord
+            { 
+                name: "Discord", 
+                desc: "Talk, chat, hang out", 
+                url: "https://discord.com/channels/506071363602219010/506071364071849996", 
+                image: "images/discord.png", 
+                bgColor: "#00A0DF", 
+                padding: "20px"
+            },
+            // 16. Schwab
+            { 
+                name: "Charles Schwab", 
+                desc: "Financial services", 
+                url: "https://client.schwab.com/Areas/Access/Login?SessionTimeOut=y&ReturnUrl=%2fclientapps%2faccounts%2fsummary%2f",
+                bgColor: "#00A0DF", 
+                image: "images/charlesschwab.png" 
+            },
+            // 17. Time.is
+            { 
+                name: "Time.is", 
+                desc: "Exact time now", 
+                url: "https://time.is/", 
+                bgColor: "#CC3355",
+                image: "images/timeis.png" 
+            },
+            // 18. Gemini
+            { 
+                name: "Gemini", 
+                desc: "Google AI assistant", 
+                url: "https://gemini.google.com/app", 
+                image: "images/gemini.svg", 
+                bgColor: "#F0F4F9", 
+                padding: "20px"
+            },
+            // 19. Keep
+            { 
+                name: "Keep", 
+                desc: "Note taking", 
+                url: "https://keep.google.com/", 
+                image: "images/keep.png" 
+            }
         ]
     }
 ];
@@ -42,20 +177,42 @@ function renderBookmarks() {
             card.href = site.url;
             card.target = "_self"; 
 
-            // 左側圖片區 (120x120)
+            // 左側圖片區
             const imgWrapper = document.createElement('div');
             imgWrapper.className = 'card-img-wrapper';
 
+            // 設定底色
+            if (site.bgColor) {
+                imgWrapper.style.backgroundColor = site.bgColor;
+            }
+
+            // 圖片本體
             const img = document.createElement('img');
             img.className = 'card-img';
-            // 使用新尺寸的 placeholder 或自訂圖片
-            img.src = site.image || `https://placehold.co/120x120/333/fff?text=${site.name[0]}`;
+            img.src = site.image; 
             img.alt = site.name;
-            img.loading = "lazy";
+            
+            // 設定內距與縮放
+            if (site.padding) {
+                img.style.padding = site.padding;
+                img.style.objectFit = "contain"; 
+            }
+
+            img.onerror = function() {
+                this.style.display = 'none';
+                imgWrapper.style.display = 'flex';
+                imgWrapper.style.alignItems = 'center';
+                imgWrapper.style.justifyContent = 'center';
+                imgWrapper.style.backgroundColor = '#333';
+                imgWrapper.innerText = site.name[0];
+                imgWrapper.style.color = '#fff';
+                imgWrapper.style.fontSize = '2rem';
+                imgWrapper.style.fontWeight = 'bold';
+            };
 
             imgWrapper.appendChild(img);
 
-            // 右側資訊區
+            // 右側文字區
             const infoDiv = document.createElement('div');
             infoDiv.className = 'card-info';
 
