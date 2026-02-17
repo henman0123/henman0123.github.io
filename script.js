@@ -128,7 +128,7 @@ const bookmarksData = [
                 desc: "Financial services", 
                 url: "https://client.schwab.com/Areas/Access/Login?SessionTimeOut=y&ReturnUrl=%2fclientapps%2faccounts%2fsummary%2f",
                 bgColor: "#00A0DF", 
-                image: "images/charlesschwab.png" 
+                image: "images/charlesSCHWAB.png" 
             },
             // 17. Time.is
             { 
