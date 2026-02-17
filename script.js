@@ -14,7 +14,7 @@ const bookmarksData = [
             // 2. Steam
             { 
                 name: "Steam", 
-                desc: "Ultimate gaming platform", 
+                desc: "終極線上遊戲平台", 
                 url: "https://store.steampowered.com/", 
                 image: "images/steam.png", 
                 bgColor: "#171a21", 
@@ -23,7 +23,7 @@ const bookmarksData = [
             // 3. Bangumi
             { 
                 name: "Bangumi", 
-                desc: "Anime & manga tracker", 
+                desc: "番组计划 riff", 
                 url: "https://bangumi.tv/", 
                 image: "images/bangumi.png",
                 // 沒設定 bgColor 則使用 CSS 預設
@@ -31,14 +31,14 @@ const bookmarksData = [
             // 4. Keylol
             { 
                 name: "Keylol", 
-                desc: "Game community", 
+                desc: "驱动正版游戏的引擎！", 
                 url: "https://keylol.com/", 
                 image: "images/keylol.png" 
             },
             // 5. Pixiv
             { 
                 name: "Pixiv", 
-                desc: "Illustration community", 
+                desc: "毎日投稿されるイラストから素敵な作品を探そう！", 
                 url: "https://www.pixiv.net/", 
                 image: "images/pixiv.png", 
                 bgColor: "#0096fa", 
@@ -49,16 +49,15 @@ const bookmarksData = [
                 name: "Drive", 
                 desc: "Google Drive storage", 
                 url: "https://drive.google.com/drive/my-drive", 
-                image: "images/drive.png" 
+                image: "images/googleDrive.png" 
             },
             // 7. Bilibili
             { 
                 name: "Bilibili", 
-                desc: "Anime streaming", 
+                desc: "哔哩哔哩(゜-゜)つロ干杯~-", 
                 url: "https://www.bilibili.com/anime", 
                 image: "images/bilibili.png", 
                 bgColor: "#00A1D6", 
-                padding: "15px"
             },
             // 8. Folo
             { 
@@ -81,8 +80,8 @@ const bookmarksData = [
                 name: "Telegram", 
                 desc: "Cloud-based messaging", 
                 url: "https://web.telegram.org/", 
-                image: "images/telegram.png", 
-                bgColor: "#2481CC", 
+                image: "images/telegram.svg", 
+                bgColor: "#ffffff", 
                 padding: "20px"
             },
             // 11. Notion
@@ -99,34 +98,31 @@ const bookmarksData = [
                 name: "YouTube", 
                 desc: "Broadcast Yourself", 
                 url: "https://www.youtube.com/", 
-                image: "images/youtube.png", 
-                bgColor: "#FFFFFF", 
-                padding: "20px"
+                image: "images/youtube.svg"
             },
             // 13. YouTube Music
             { 
                 name: "YT Music", 
                 desc: "Music streaming", 
                 url: "https://music.youtube.com/", 
-                image: "images/ytmusic.png" 
+                bgColor: "#F90114",
+                image: "images/YT_Music.svg" 
             },
             // 14. Darmoshark
             { 
                 name: "Darmoshark", 
                 desc: "Gaming peripherals", 
                 url: "https://www.darmoshark.cc/#/", 
-                image: "images/darmoshark.png" 
+                image: "images/darmoshark.jpg" 
             },
             // 15. Discord
             { 
                 name: "Discord", 
                 desc: "Talk, chat, hang out", 
                 url: "https://discord.com/channels/506071363602219010/506071364071849996", 
-                image: "images/discord.png", 
-                bgColor: "#00A0DF", 
-                padding: "20px"
+                image: "images/discord.jpg", 
             },
-            // 16. Schwab
+            // 16. Charles Schwab
             { 
                 name: "Charles Schwab", 
                 desc: "Financial services", 
@@ -156,7 +152,7 @@ const bookmarksData = [
                 name: "Keep", 
                 desc: "Note taking", 
                 url: "https://keep.google.com/", 
-                image: "images/keep.png" 
+                image: "images/googlekeep.jpeg" 
             }
         ]
     }
