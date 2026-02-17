@@ -229,3 +229,118 @@ header {
         padding: 12px 20px;
     }
 }
+
+/* =========================================
+   側邊導航欄 (自動隱藏/滑出)
+========================================= */
+
+/* 1. 觸發區 (螢幕最左側的隱形感應區) */
+.sidebar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 25px; /* 滑鼠碰到螢幕最左邊 25px 處就會觸發 */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+/* 小箭頭提示 */
+.trigger-icon {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 24px;
+    margin-left: 2px;
+    transition: opacity 0.3s;
+    user-select: none;
+}
+
+/* 2. 側邊欄本體 (預設藏在畫面左外側) */
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: -250px; /* 將 250px 寬的側邊欄往左推 250px 隱藏 */
+    width: 250px;
+    height: 100vh;
+    background: rgba(25, 25, 25, 0.85); /* 半透明黑底 */
+    backdrop-filter: blur(15px);        /* 毛玻璃效果 */
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+    padding: 50px 20px;
+    
+    display: flex;
+    flex-direction: column;
+    /* 核心動畫：當 left 改變時，花 0.3 秒平滑過渡 */
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 3. 觸發邏輯：滑鼠懸浮在 wrapper 時，本體歸位，箭頭隱藏 */
+.sidebar-wrapper:hover .sidebar {
+    left: 0;
+}
+.sidebar-wrapper:hover .trigger-icon {
+    opacity: 0;
+}
+
+/* --- 側邊欄內部元素樣式 --- */
+.sidebar-title {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    padding-left: 10px;
+}
+
+#nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-btn {
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    transform: translateX(8px); /* 懸浮時按鈕微向右移 */
+}
+
+/* 為分類標題加上平滑滾動的偏移 (避免被視窗頂部切到) */
+.category-group {
+    scroll-margin-top: 50px; 
+}
+
+/* ... 原本的 .nav-btn 樣式保持不變 ... */
+
+/* 新增：當按鈕被選中時的樣式 (Active State) */
+.nav-btn.active {
+    background: rgba(255, 255, 255, 0.2); /* 比 hover 更亮一點 */
+    color: #ffffff;
+    font-weight: 700;
+    border-left: 4px solid #4a90e2; /* 左側加一個藍色亮條 */
+    padding-left: 11px; /* 因為加了 border，內距要扣掉 4px 保持平衡 */
+}
+
+/* 確保切換時內容區塊有淡入動畫 */
+.category-group {
+    /* 預設隱藏 (JS 會控制 display) */
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -62,7 +62,7 @@ const bookmarksData = [
             // 8. Folo
             { 
                 name: "Folo", 
-                desc: "Information hub", 
+                desc: "Folo 是你的 AI RSS 閱讀器", 
                 url: "https://app.folo.is/timeline/articles/all/pending", 
                 bgColor: "#FF5C00", 
                 image: "images/folo.png" 
@@ -70,7 +70,7 @@ const bookmarksData = [
             // 9. NGA
             { 
                 name: "NGA", 
-                desc: "Elite gamer forum", 
+                desc: "菁英玩家俱樂部", 
                 url: "https://bbs.nga.cn/", 
                 bgColor: "#591804", 
                 image: "images/nga.png" 
@@ -97,7 +97,8 @@ const bookmarksData = [
             { 
                 name: "YouTube", 
                 desc: "Broadcast Yourself", 
-                url: "https://www.youtube.com/", 
+                url: "https://www.youtube.com/",
+                bgColor: "#FF0033",
                 image: "images/youtube.svg"
             },
             // 13. YouTube Music
@@ -155,45 +156,70 @@ const bookmarksData = [
                 image: "images/googlekeep.jpeg" 
             }
         ]
+    },
+    // --- 為了測試側邊欄跳轉，我加上了一個示範用的新分類 ---
+    {
+        category: "Tools & Dev",
+        items: [
+            { name: "GitHub", desc: "Code hosting", url: "https://github.com", image: "images/x.png", bgColor: "#24292e" },
+            { name: "ChatGPT", desc: "AI Assistant", url: "https://chatgpt.com", image: "images/x.png", bgColor: "#10a37f" }
+        ]
     }
 ];
-
 // 2. 渲染邏輯
 function renderBookmarks() {
     const container = document.getElementById('bookmark-container');
+    const navContainer = document.getElementById('nav-links');
+    
+    // 清空容器
     container.innerHTML = '';
+    navContainer.innerHTML = '';
 
-    bookmarksData.forEach(group => {
+    // 用來儲存所有的分類區塊 DOM，方便後續切換顯示
+    const groupElements = [];
+    const navButtons = [];
+
+    bookmarksData.forEach((group, index) => {
+        // --- 1. 建立內容區塊 (Card Grid) ---
+        const groupDiv = document.createElement('div');
+        groupDiv.className = 'category-group';
+        groupDiv.id = `category-${index}`;
+        
+        // 預設邏輯：只有第 0 個分類 (Most Used) 顯示，其他隱藏
+        if (index !== 0) {
+            groupDiv.style.display = 'none';
+        }
+
+        /* 分類標題 (可選顯示)
+        const title = document.createElement('h2');
+        title.style.color = "var(--text-secondary)";
+        title.style.marginBottom = "20px";
+        title.style.fontSize = "1.2rem";
+        title.textContent = group.category;
+        groupDiv.appendChild(title);*/
+
         const grid = document.createElement('div');
         grid.className = 'grid';
 
+        // 生成卡片 (維持原本邏輯)
         group.items.forEach(site => {
             const card = document.createElement('a');
             card.className = 'card';
             card.href = site.url;
             card.target = "_self"; 
 
-            // 左側圖片區
             const imgWrapper = document.createElement('div');
             imgWrapper.className = 'card-img-wrapper';
+            if (site.bgColor) imgWrapper.style.backgroundColor = site.bgColor;
 
-            // 設定底色
-            if (site.bgColor) {
-                imgWrapper.style.backgroundColor = site.bgColor;
-            }
-
-            // 圖片本體
             const img = document.createElement('img');
             img.className = 'card-img';
             img.src = site.image; 
             img.alt = site.name;
-            
-            // 設定內距與縮放
             if (site.padding) {
                 img.style.padding = site.padding;
                 img.style.objectFit = "contain"; 
             }
-
             img.onerror = function() {
                 this.style.display = 'none';
                 imgWrapper.style.display = 'flex';
@@ -205,21 +231,16 @@ function renderBookmarks() {
                 imgWrapper.style.fontSize = '2rem';
                 imgWrapper.style.fontWeight = 'bold';
             };
-
             imgWrapper.appendChild(img);
 
-            // 右側文字區
             const infoDiv = document.createElement('div');
             infoDiv.className = 'card-info';
-
             const titleSpan = document.createElement('div');
             titleSpan.className = 'card-title';
             titleSpan.textContent = site.name;
-
             const descSpan = document.createElement('div');
             descSpan.className = 'card-desc';
             descSpan.textContent = site.desc || (new URL(site.url)).hostname;
-
             infoDiv.appendChild(titleSpan);
             infoDiv.appendChild(descSpan);
 
@@ -228,7 +249,37 @@ function renderBookmarks() {
             grid.appendChild(card);
         });
 
-        container.appendChild(grid);
+        groupDiv.appendChild(grid);
+        container.appendChild(groupDiv);
+        
+        // 將建立好的區塊存入陣列
+        groupElements.push(groupDiv);
+
+        // --- 2. 建立側邊欄按鈕 ---
+        const navBtn = document.createElement('button');
+        navBtn.className = 'nav-btn';
+        navBtn.textContent = group.category;
+        
+        // 預設第一個按鈕為 active 狀態
+        if (index === 0) {
+            navBtn.classList.add('active');
+        }
+
+        // --- 3. 點擊切換邏輯 (Tab Switching) ---
+        navBtn.addEventListener('click', () => {
+            // A. 隱藏所有內容區塊
+            groupElements.forEach(el => el.style.display = 'none');
+            
+            // B. 顯示被點擊的那個區塊
+            groupElements[index].style.display = 'block';
+
+            // C. 更新按鈕狀態 (移除舊的 active，新增新的 active)
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            navBtn.classList.add('active');
+        });
+
+        navContainer.appendChild(navBtn);
+        navButtons.push(navBtn);
     });
 }
 
@@ -242,7 +293,4 @@ document.getElementById('searchInput').addEventListener('keypress', function(e) 
     }
 });
 
-// 初始化
-document.addEventListener('DOMContentLoaded', () => {
-    renderBookmarks();
-});
+document.addEventListener('DOMContentLoaded', renderBookmarks);
