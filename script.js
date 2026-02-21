@@ -159,10 +159,20 @@ const bookmarksData = [
     },
     // --- 為了測試側邊欄跳轉，我加上了一個示範用的新分類 ---
     {
-        category: "Tools & Dev",
+        category: "OTT",
         items: [
-            { name: "GitHub", desc: "Code hosting", url: "https://github.com", image: "images/x.png", bgColor: "#24292e" },
-            { name: "ChatGPT", desc: "AI Assistant", url: "https://chatgpt.com", image: "images/x.png", bgColor: "#10a37f" }
+            { name: "Netflix", desc: "讓您在線上觀賞節目與電影", url: "https://www.netflix.com/browse", image: "images/netflix.png", bgColor: "#24292e" },
+            { name: "Disney+", desc: "盡情觀賞電影、電視影集和原創作品", url: "https://www.disneyplus.com/zh-hant/select-profile", image: "images/disney+.png"},
+            // 3. hami video
+            { 
+                name: "Hami Video", 
+                desc: "懂你想看的 OTT 線上影視平台", 
+                url: "https://hamivideo.hinet.net/%E5%BD%B1%E5%8A%87%E9%A4%A8%E2%81%BA/%E5%8B%95%E6%BC%AB/%E6%8E%A8%E8%96%A6.do", 
+                image: "images/hamivideo.png",
+                bgColor: "#FFFFFF", 
+                padding: "20px"
+
+            }
         ]
     }
 ];
