@@ -139,7 +139,15 @@ const bookmarksData = [
                 bgColor: "#CC3355",
                 image: "images/timeis.png" 
             },
-            // 18. Gemini
+           // 18. Claude
+            { 
+                name: "Claude", 
+                desc: "Claude is Anthropic's AI, built for problem solvers. ", 
+                url: "https://claude.ai", 
+                bgColor: "#D77655",
+                image: "images/Claude.svg" 
+            },
+            // 19. Gemini
             { 
                 name: "Gemini", 
                 desc: "Google AI assistant", 
@@ -148,7 +156,7 @@ const bookmarksData = [
                 bgColor: "#F0F4F9", 
                 padding: "20px"
             },
-            // 19. Keep
+            // 20. Keep
             { 
                 name: "Keep", 
                 desc: "Note taking", 
@@ -174,7 +182,46 @@ const bookmarksData = [
 
             }
         ]
+    },
+    {
+        category: "e-Shopping",
+        items: [
+            { 
+                name: "PChome 24h", 
+                desc: "台灣綜合網路購物", 
+                url: "https://24h.pchome.com.tw/", 
+                image: "images/pchome.png", 
+                bgColor: "#FFFFFF"
+            },
+            { 
+                name: "京東 (JD)", 
+                desc: "多快好省", 
+                url: "https://www.jd.com/", 
+                image: "images/jd.png", 
+                bgColor: "#FF301A"
+            },
+            { 
+                name: "淘寶", 
+                desc: "淘到心儀好物", 
+                url: "https://world.taobao.com/", 
+                image: "images/taobao.png", 
+                bgColor: "#FF5000", 
+            },
+            { 
+                name: "Amazon JP", 
+                desc: "本 , ファッション , 家電から食品まで", 
+                url: "https://www.amazon.co.jp/", 
+                image: "images/amazon.png"            },
+            { 
+                name: "Mercari", 
+                desc: "日本最大のフリマサービス", 
+                url: "https://jp.mercari.com/", 
+                image: "images/mercari.png", 
+                bgColor: "#E32B36" // Mercari 品牌紅
+            }
+        ]
     }
+// ]; (這是 bookmarksData 陣列的結尾)
 ];
 // 2. 渲染邏輯
 function renderBookmarks() {
