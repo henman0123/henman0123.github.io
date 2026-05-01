@@ -84,16 +84,7 @@ const bookmarksData = [
                 bgColor: "#ffffff", 
                 padding: "20px"
             },
-            // 11. Notion
-            { 
-                name: "Notion", 
-                desc: "All-in-one workspace", 
-                url: "https://www.notion.so/", 
-                image: "images/notion.png", 
-                bgColor: "#FFFFFF", 
-                padding: "15px"
-            },
-            // 12. YouTube
+            // 11. YouTube
             { 
                 name: "YouTube", 
                 desc: "Broadcast Yourself", 
@@ -165,7 +156,6 @@ const bookmarksData = [
             }
         ]
     },
-    // --- 為了測試側邊欄跳轉，我加上了一個示範用的新分類 ---
     {
         category: "OTT",
         items: [
@@ -217,11 +207,17 @@ const bookmarksData = [
                 desc: "日本最大のフリマサービス", 
                 url: "https://jp.mercari.com/", 
                 image: "images/mercari.png", 
-                bgColor: "#E32B36" // Mercari 品牌紅
+                bgColor: "#E32B36"
+            },
+            { 
+                name: "蝦皮購物", 
+                desc: "台灣最大電商平台，享受超值購物", 
+                url: "https://shopee.tw/", 
+                image: "images/shopee.png", 
+                bgColor: "#EE4D2D"
             }
         ]
     }
-// ]; (這是 bookmarksData 陣列的結尾)
 ];
 // 2. 渲染邏輯
 function renderBookmarks() {
@@ -246,14 +242,6 @@ function renderBookmarks() {
         if (index !== 0) {
             groupDiv.style.display = 'none';
         }
-
-        /* 分類標題 (可選顯示)
-        const title = document.createElement('h2');
-        title.style.color = "var(--text-secondary)";
-        title.style.marginBottom = "20px";
-        title.style.fontSize = "1.2rem";
-        title.textContent = group.category;
-        groupDiv.appendChild(title);*/
 
         const grid = document.createElement('div');
         grid.className = 'grid';
@@ -341,13 +329,61 @@ function renderBookmarks() {
 }
 
 // 3. 搜尋功能
-document.getElementById('searchInput').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        const query = this.value;
-        if (query) {
-            window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+document.addEventListener('DOMContentLoaded', function() {
+    renderBookmarks();
+
+    document.getElementById('searchInput').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const query = this.value.trim();
+            if (query) {
+                window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+            }
         }
-    }
+    });
 });
 
-document.addEventListener('DOMContentLoaded', renderBookmarks);
+// 4. 滾輪全頁切換分類
+(function initWheelSwitch() {
+    let currentIndex = 0;
+    let isThrottled = false;
+
+    // 等 DOM 與 renderBookmarks 完成後再掛載
+    document.addEventListener('DOMContentLoaded', function() {
+        // 取得所有分類區塊與側邊欄按鈕 (renderBookmarks 已產生)
+        function getElements() {
+            return {
+                groups: Array.from(document.querySelectorAll('.category-group')),
+                buttons: Array.from(document.querySelectorAll('.nav-btn'))
+            };
+        }
+
+        function switchTo(index) {
+            const { groups, buttons } = getElements();
+            if (index < 0 || index >= groups.length) return;
+
+            groups.forEach(el => el.style.display = 'none');
+            groups[index].style.display = 'block';
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if (buttons[index]) buttons[index].classList.add('active');
+
+            currentIndex = index;
+        }
+
+        document.addEventListener('wheel', function(e) {
+            // 若焦點在搜尋框，不攔截
+            if (document.activeElement === document.getElementById('searchInput')) return;
+            // 節流：切換動畫期間忽略連續滾動
+            if (isThrottled) return;
+
+            if (e.deltaY > 0) {
+                switchTo(currentIndex + 1); // 向下 → 下一分類
+            } else if (e.deltaY < 0) {
+                switchTo(currentIndex - 1); // 向上 → 上一分類
+            }
+
+            isThrottled = true;
+            setTimeout(() => { isThrottled = false; }, 300); // 300ms 冷卻
+        }, { passive: true });
+    });
+})();

@@ -318,25 +318,17 @@ header {
     transform: translateX(8px); /* 懸浮時按鈕微向右移 */
 }
 
-/* 為分類標題加上平滑滾動的偏移 (避免被視窗頂部切到) */
-.category-group {
-    scroll-margin-top: 50px; 
-}
-
-/* ... 原本的 .nav-btn 樣式保持不變 ... */
-
-/* 新增：當按鈕被選中時的樣式 (Active State) */
+/* Active state */
 .nav-btn.active {
-    background: rgba(255, 255, 255, 0.2); /* 比 hover 更亮一點 */
+    background: rgba(255, 255, 255, 0.2);
     color: #ffffff;
     font-weight: 700;
-    border-left: 4px solid #4a90e2; /* 左側加一個藍色亮條 */
-    padding-left: 11px; /* 因為加了 border，內距要扣掉 4px 保持平衡 */
+    border-left: 4px solid #4a90e2;
+    padding-left: 11px;
 }
 
-/* 確保切換時內容區塊有淡入動畫 */
 .category-group {
-    /* 預設隱藏 (JS 會控制 display) */
+    scroll-margin-top: 50px;
     animation: fadeIn 0.4s ease-in-out;
 }
 
