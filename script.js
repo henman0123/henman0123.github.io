@@ -220,6 +220,7 @@ const bookmarksData = [
     }
 ];
 // 2. 渲染邏輯
+// 2. 渲染邏輯與互動控制
 function renderBookmarks() {
     const container = document.getElementById('bookmark-container');
     const navContainer = document.getElementById('nav-links');
@@ -228,25 +229,55 @@ function renderBookmarks() {
     container.innerHTML = '';
     navContainer.innerHTML = '';
 
-    // 用來儲存所有的分類區塊 DOM，方便後續切換顯示
     const groupElements = [];
     const navButtons = [];
+    
+    // 新增：狀態追蹤變數
+    let currentCategoryIndex = 0; 
+    let isScrolling = false; // 滾輪防抖冷卻鎖
+
+    // --- 新增：獨立出來的共用切換邏輯 ---
+    function switchCategory(newIndex) {
+        // 邊界防護：如果索引超出範圍，或是跟目前一樣，則不動作
+        if (newIndex < 0 || newIndex >= bookmarksData.length || newIndex === currentCategoryIndex) return;
+        
+        // A. 隱藏所有內容區塊
+        groupElements.forEach(el => el.style.display = 'none');
+        
+        // B. 顯示目標區塊
+        groupElements[newIndex].style.display = 'block';
+
+        // C. 更新按鈕狀態
+        navButtons.forEach(btn => btn.classList.remove('active'));
+        navButtons[newIndex].classList.add('active');
+
+        // 更新當前索引
+        currentCategoryIndex = newIndex;
+    }
 
     bookmarksData.forEach((group, index) => {
-        // --- 1. 建立內容區塊 (Card Grid) ---
+        // --- 1. 建立內容區塊 ---
         const groupDiv = document.createElement('div');
         groupDiv.className = 'category-group';
         groupDiv.id = `category-${index}`;
         
-        // 預設邏輯：只有第 0 個分類 (Most Used) 顯示，其他隱藏
         if (index !== 0) {
             groupDiv.style.display = 'none';
         }
 
+<<<<<<< HEAD
+=======
+        const title = document.createElement('h2');
+        title.style.color = "var(--text-secondary)";
+        title.style.marginBottom = "20px";
+        title.style.fontSize = "1.2rem";
+        title.textContent = group.category;
+        groupDiv.appendChild(title);
+
+>>>>>>> a241fdbbccef823d3f5222860fcb46802ac16291
         const grid = document.createElement('div');
         grid.className = 'grid';
 
-        // 生成卡片 (維持原本邏輯)
         group.items.forEach(site => {
             const card = document.createElement('a');
             card.className = 'card';
@@ -296,8 +327,6 @@ function renderBookmarks() {
 
         groupDiv.appendChild(grid);
         container.appendChild(groupDiv);
-        
-        // 將建立好的區塊存入陣列
         groupElements.push(groupDiv);
 
         // --- 2. 建立側邊欄按鈕 ---
@@ -305,29 +334,49 @@ function renderBookmarks() {
         navBtn.className = 'nav-btn';
         navBtn.textContent = group.category;
         
-        // 預設第一個按鈕為 active 狀態
         if (index === 0) {
             navBtn.classList.add('active');
         }
 
-        // --- 3. 點擊切換邏輯 (Tab Switching) ---
+        // --- 3. 點擊切換事件 (改呼叫共用邏輯) ---
         navBtn.addEventListener('click', () => {
-            // A. 隱藏所有內容區塊
-            groupElements.forEach(el => el.style.display = 'none');
-            
-            // B. 顯示被點擊的那個區塊
-            groupElements[index].style.display = 'block';
-
-            // C. 更新按鈕狀態 (移除舊的 active，新增新的 active)
-            navButtons.forEach(btn => btn.classList.remove('active'));
-            navBtn.classList.add('active');
+            switchCategory(index);
         });
 
         navContainer.appendChild(navBtn);
         navButtons.push(navBtn);
     });
+
+    // --- 4. 新增：全域滑鼠滾輪事件監聽 ---
+    window.addEventListener('wheel', (event) => {
+        // 如果還在冷卻時間內，無視滾輪操作
+        if (isScrolling) return;
+
+        if (event.deltaY > 0) {
+            // 向下滾動 -> 切換到下一個分類
+            if (currentCategoryIndex < bookmarksData.length - 1) {
+                switchCategory(currentCategoryIndex + 1);
+                triggerCooldown();
+            }
+        } else if (event.deltaY < 0) {
+            // 向上滾動 -> 切換到上一個分類
+            if (currentCategoryIndex > 0) {
+                switchCategory(currentCategoryIndex - 1);
+                triggerCooldown();
+            }
+        }
+    });
+
+    // 冷卻時間控制函數 (避免一次滾動跳躍太多分類)
+    function triggerCooldown() {
+        isScrolling = true;
+        setTimeout(() => {
+            isScrolling = false;
+        }, 400); // 400 毫秒的冷卻時間，配合 CSS 的淡入動畫長度最自然
+    }
 }
 
+<<<<<<< HEAD
 // 3. 搜尋功能
 document.addEventListener('DOMContentLoaded', function() {
     renderBookmarks();
@@ -387,3 +436,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { passive: true });
     });
 })();
+=======
+document.addEventListener('DOMContentLoaded', renderBookmarks);
+>>>>>>> a241fdbbccef823d3f5222860fcb46802ac16291
