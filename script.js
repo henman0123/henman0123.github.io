@@ -84,7 +84,16 @@ const bookmarksData = [
                 bgColor: "#ffffff", 
                 padding: "20px"
             },
-            // 11. YouTube
+            // 11. Garmin Connect
+            {
+                name: "Garmin Connect",
+                desc: "Track your fitness & activities",
+                url: "https://connect.garmin.com/modern/",
+                image: "images/garmin.png",
+                bgColor: "#1B5EA0",
+                padding: "0px"
+            },
+            // 12. YouTube
             { 
                 name: "YouTube", 
                 desc: "Broadcast Yourself", 
@@ -383,7 +392,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             isThrottled = true;
-            setTimeout(() => { isThrottled = false; }, 300); // 300ms 冷卻
+            setTimeout(() => { isThrottled = false; }, 700); // 700ms 冷卻
         }, { passive: true });
     });
 })();
