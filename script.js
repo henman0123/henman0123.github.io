@@ -93,7 +93,16 @@ const bookmarksData = [
                 bgColor: "#1B5EA0",
                 padding: "0px"
             },
-            // 12. YouTube
+            // 12. Koofr
+            {
+                name: "Koofr",
+                desc: "One storage for all",
+                url: "https://app.koofr.net/app/",
+                image: "images/koofr.png",
+                bgColor: "#1B5EA0",
+                padding: "0px"
+            },
+            // 13. YouTube
             { 
                 name: "YouTube", 
                 desc: "Broadcast Yourself", 
@@ -101,7 +110,7 @@ const bookmarksData = [
                 bgColor: "#FF0033",
                 image: "images/youtube.svg"
             },
-            // 13. YouTube Music
+            // 14. YouTube Music
             { 
                 name: "YT Music", 
                 desc: "Music streaming", 
@@ -109,29 +118,29 @@ const bookmarksData = [
                 bgColor: "#F90114",
                 image: "images/YT_Music.svg" 
             },
-            // 14. Darmoshark
+            // 15. Darmoshark
             { 
                 name: "Darmoshark", 
                 desc: "Gaming peripherals", 
                 url: "https://www.darmoshark.cc/#/", 
                 image: "images/darmoshark.jpg" 
             },
-            // 15. Discord
+            // 16. Discord
             { 
                 name: "Discord", 
                 desc: "Talk, chat, hang out", 
                 url: "https://discord.com/channels/506071363602219010/506071364071849996", 
                 image: "images/discord.jpg", 
             },
-            // 16. Charles Schwab
+            // 17. Charles Schwab
             { 
                 name: "Charles Schwab", 
                 desc: "Financial services", 
-                url: "https://client.schwab.com/Areas/Access/Login?SessionTimeOut=y&ReturnUrl=%2fclientapps%2faccounts%2fsummary%2f",
+                url: "https://client.schwab.com/Areas/Access/Login?SessionTimeOut=y&ReturnUrl=%2Fclientapps%2Faccounts%2Fsummary%2F&lang=zh-tw",
                 bgColor: "#00A0DF", 
                 image: "images/charlesSCHWAB.png" 
             },
-            // 17. Time.is
+            // 18. Time.is
             { 
                 name: "Time.is", 
                 desc: "Exact time now", 
@@ -139,7 +148,7 @@ const bookmarksData = [
                 bgColor: "#CC3355",
                 image: "images/timeis.png" 
             },
-           // 18. Claude
+           // 19. Claude
             { 
                 name: "Claude", 
                 desc: "Claude is Anthropic's AI, built for problem solvers. ", 
@@ -147,7 +156,7 @@ const bookmarksData = [
                 bgColor: "#D77655",
                 image: "images/Claude.svg" 
             },
-            // 19. Gemini
+            // 20. Gemini
             { 
                 name: "Gemini", 
                 desc: "Google AI assistant", 
@@ -156,7 +165,7 @@ const bookmarksData = [
                 bgColor: "#F0F4F9", 
                 padding: "20px"
             },
-            // 20. Keep
+            // 21. Keep
             { 
                 name: "Keep", 
                 desc: "Note taking", 
