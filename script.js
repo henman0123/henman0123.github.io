@@ -238,6 +238,15 @@ const bookmarksData = [
     }
 ];
 // 2. 渲染邏輯
+
+// 記住使用者上次瀏覽的分類
+const CATEGORY_STORAGE_KEY = 'lastCategoryIndex';
+
+function getSavedCategoryIndex() {
+    const saved = parseInt(localStorage.getItem(CATEGORY_STORAGE_KEY), 10);
+    return (!isNaN(saved) && saved >= 0 && saved < bookmarksData.length) ? saved : 0;
+}
+
 function renderBookmarks() {
     const container = document.getElementById('bookmark-container');
     const navContainer = document.getElementById('nav-links');
@@ -249,15 +258,16 @@ function renderBookmarks() {
     // 用來儲存所有的分類區塊 DOM，方便後續切換顯示
     const groupElements = [];
     const navButtons = [];
+    const initialIndex = getSavedCategoryIndex();
 
     bookmarksData.forEach((group, index) => {
         // --- 1. 建立內容區塊 (Card Grid) ---
         const groupDiv = document.createElement('div');
         groupDiv.className = 'category-group';
         groupDiv.id = `category-${index}`;
-        
-        // 預設邏輯：只有第 0 個分類 (Most Used) 顯示，其他隱藏
-        if (index !== 0) {
+
+        // 預設邏輯：只顯示上次瀏覽的分類（或第一個），其他隱藏
+        if (index !== initialIndex) {
             groupDiv.style.display = 'none';
         }
 
@@ -323,8 +333,8 @@ function renderBookmarks() {
         navBtn.className = 'nav-btn';
         navBtn.textContent = group.category;
         
-        // 預設第一個按鈕為 active 狀態
-        if (index === 0) {
+        // 預設 active 狀態對應上次瀏覽的分類
+        if (index === initialIndex) {
             navBtn.classList.add('active');
         }
 
@@ -332,13 +342,16 @@ function renderBookmarks() {
         navBtn.addEventListener('click', () => {
             // A. 隱藏所有內容區塊
             groupElements.forEach(el => el.style.display = 'none');
-            
+
             // B. 顯示被點擊的那個區塊
             groupElements[index].style.display = 'block';
 
             // C. 更新按鈕狀態 (移除舊的 active，新增新的 active)
             navButtons.forEach(btn => btn.classList.remove('active'));
             navBtn.classList.add('active');
+
+            // D. 記住這次瀏覽的分類
+            localStorage.setItem(CATEGORY_STORAGE_KEY, index);
         });
 
         navContainer.appendChild(navBtn);
@@ -367,6 +380,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 等 DOM 與 renderBookmarks 完成後再掛載
     document.addEventListener('DOMContentLoaded', function() {
+        // renderBookmarks 已經根據上次瀏覽紀錄顯示了正確的分類，這裡同步起始索引
+        currentIndex = getSavedCategoryIndex();
+
         // 取得所有分類區塊與側邊欄按鈕 (renderBookmarks 已產生)
         function getElements() {
             return {
@@ -386,6 +402,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (buttons[index]) buttons[index].classList.add('active');
 
             currentIndex = index;
+            localStorage.setItem(CATEGORY_STORAGE_KEY, index);
         }
 
         document.addEventListener('wheel', function(e) {
