@@ -140,7 +140,15 @@ const bookmarksData = [
                 bgColor: "#00A0DF", 
                 image: "images/charlesSCHWAB.png" 
             },
-            // 18. Time.is
+            // 18. Interactive Brokers
+            {
+                name: "IBKR",
+                desc: "Global online brokerage",
+                url: "https://www.interactivebrokers.com/sso/Login",
+                bgColor: "#1A1A1A",
+                image: "images/ibkr.png"
+            },
+            // 19. Time.is
             { 
                 name: "Time.is", 
                 desc: "Exact time now", 
@@ -148,7 +156,7 @@ const bookmarksData = [
                 bgColor: "#CC3355",
                 image: "images/timeis.png" 
             },
-           // 19. Claude
+           // 20. Claude
             { 
                 name: "Claude", 
                 desc: "Claude is Anthropic's AI, built for problem solvers. ", 
@@ -156,7 +164,7 @@ const bookmarksData = [
                 bgColor: "#D77655",
                 image: "images/Claude.svg" 
             },
-            // 20. Gemini
+            // 21. Gemini
             { 
                 name: "Gemini", 
                 desc: "Google AI assistant", 
@@ -165,7 +173,7 @@ const bookmarksData = [
                 bgColor: "#F0F4F9", 
                 padding: "20px"
             },
-            // 21. Keep
+            // 22. Keep
             { 
                 name: "Keep", 
                 desc: "Note taking", 
