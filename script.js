@@ -6,7 +6,7 @@ const bookmarksData = [
             // 1. X (Twitter)
             { 
                 name: "X (Twitter)", 
-                desc: "從突發新聞到娛樂、體育和政治新聞，一手掌握完整消息和所有實況報導。", 
+                desc: "突發新聞、娛樂、體育與政治的即時動態", 
                 url: "https://x.com/home", 
                 image: "images/twitter.webp", 
                 bgColor: "#000000",
@@ -14,7 +14,7 @@ const bookmarksData = [
             // 2. Steam
             { 
                 name: "Steam", 
-                desc: "Steam is the ultimate destination for playing, discussing, and creating games.", 
+                desc: "Play, discuss, and create games.", 
                 url: "https://store.steampowered.com/", 
                 image: "images/steam.png", 
                 bgColor: "#171a21", 
@@ -23,7 +23,7 @@ const bookmarksData = [
             // 3. Bangumi
             { 
                 name: "Bangumi", 
-                desc: "专注于动漫、音乐、游戏领域，帮助你分享、发现与结识同好的ACG网络", 
+                desc: "专注动漫、音乐、游戏的 ACG 同好社区", 
                 url: "https://bangumi.tv/", 
                 image: "images/bangumi.png",
                 // 沒設定 bgColor 則使用 CSS 預設
@@ -31,14 +31,14 @@ const bookmarksData = [
             // 4. Keylol
             { 
                 name: "Keylol", 
-                desc: "其乐Keylol 游戏社区，Steam/Origin/Epic/Uplay/XGP for PC 等正版玩家的大本营!", 
+                desc: "Steam 等正版 PC 玩家的游戏社区", 
                 url: "https://keylol.com/", 
                 image: "images/keylol.png" 
             },
             // 5. Pixiv
             { 
                 name: "Pixiv", 
-                desc: "pixiv是全球規模最大的作品交流社區，用戶可於此投稿或瀏覽插畫、漫畫、小說作品。", 
+                desc: "全球最大的插畫、漫畫、小說創作社群", 
                 url: "https://www.pixiv.net/", 
                 image: "images/pixiv.png", 
                 bgColor: "#0096fa", 
@@ -47,14 +47,14 @@ const bookmarksData = [
             // 6. Google Drive
             { 
                 name: "Drive", 
-                desc: "透過 Google 雲端硬碟的檔案共用平台，使用者可以利用安全的個人雲端儲存空間與其他人共用內容。", 
+                desc: "安全的個人雲端儲存與檔案共用", 
                 url: "https://drive.google.com/drive/my-drive", 
                 image: "images/googleDrive.png" 
             },
             // 7. Bilibili
             { 
                 name: "Bilibili", 
-                desc: "国内知名的视频弹幕网站，这里有及时的动漫新番，活跃的ACG氛围，有创意的Up主。", 
+                desc: "动漫新番、弹幕视频与创意 Up 主", 
                 url: "https://www.bilibili.com/anime", 
                 image: "images/bilibili.png", 
                 bgColor: "#00A1D6", 
@@ -62,7 +62,7 @@ const bookmarksData = [
             // 8. Folo
             { 
                 name: "Folo", 
-                desc: "AI RSS Reader for deep, noise-free reading with contextual AI.", 
+                desc: "AI RSS Reader for noise-free reading.", 
                 url: "https://app.folo.is/timeline/articles/all/pending", 
                 bgColor: "#FF5C00", 
                 image: "images/folo.png" 
@@ -87,7 +87,7 @@ const bookmarksData = [
             // 11. Garmin Connect
             {
                 name: "Garmin Connect",
-                desc: "No matter how you move, you can record your active lifestyle on Garmin Connect.",
+                desc: "Record your active lifestyle.",
                 url: "https://connect.garmin.com/modern/",
                 image: "images/garmin.png",
                 bgColor: "#1B5EA0",
@@ -96,7 +96,7 @@ const bookmarksData = [
             // 12. Koofr
             {
                 name: "Koofr",
-                desc: "Koofr is a safe and reliable European cloud storage that respects your privacy.",
+                desc: "Private European cloud storage.",
                 url: "https://app.koofr.net/app/",
                 image: "images/koofr.png",
                 bgColor: "#1B5EA0",
@@ -105,7 +105,7 @@ const bookmarksData = [
             // 13. YouTube
             { 
                 name: "YouTube", 
-                desc: "在 YouTube 上盡情享受自己喜愛的影片和音樂、上傳原創內容，並與親朋好友和全世界觀眾分享你的影片。", 
+                desc: "觀看、上傳並分享喜愛的影片與音樂", 
                 url: "https://www.youtube.com/",
                 bgColor: "#FF0033",
                 image: "images/youtube.svg"
@@ -113,7 +113,7 @@ const bookmarksData = [
             // 14. YouTube Music
             { 
                 name: "YT Music", 
-                desc: "有了 YouTube Music 應用程式，動動手指就能暢聽超過 1 億首歌曲！", 
+                desc: "動動手指暢聽超過 1 億首歌曲", 
                 url: "https://music.youtube.com/", 
                 bgColor: "#F90114",
                 image: "images/YT_Music.svg" 
@@ -121,21 +121,21 @@ const bookmarksData = [
             // 15. Darmoshark
             { 
                 name: "Darmoshark", 
-                desc: "Darmoshark Launcher can give you endless possibilities for key remapping, macros, shortcuts, and more.", 
+                desc: "Key remapping, macros, and shortcuts.", 
                 url: "https://www.darmoshark.cc/#/", 
                 image: "images/darmoshark.jpg" 
             },
             // 16. Discord
             { 
                 name: "Discord", 
-                desc: "Customize your own space to talk, play, and hang out.", 
+                desc: "Your space to talk, play, and hang out.", 
                 url: "https://discord.com/channels/506071363602219010/506071364071849996", 
                 image: "images/discord.jpg", 
             },
             // 17. Charles Schwab
             { 
                 name: "Charles Schwab", 
-                desc: "Charles Schwab offers online brokerage and retirement accounts with $0 equity commissions, low costs, and a satisfaction guarantee.", 
+                desc: "$0 commission online brokerage.", 
                 url: "https://client.schwab.com/Areas/Access/Login?SessionTimeOut=y&ReturnUrl=%2Fclientapps%2Faccounts%2Fsummary%2F&lang=zh-tw",
                 bgColor: "#00A0DF", 
                 image: "images/charlesSCHWAB.png" 
@@ -143,7 +143,7 @@ const bookmarksData = [
             // 18. Interactive Brokers
             {
                 name: "IBKR",
-                desc: "Leading online trading solutions for traders, investors and advisors, with direct global access to stocks, options, futures, currencies, bonds and funds.",
+                desc: "Trade stocks, options & futures globally.",
                 url: "https://www.interactivebrokers.com/sso/Login",
                 bgColor: "#D81222",
                 image: "images/ibkr.png"
@@ -151,7 +151,7 @@ const bookmarksData = [
             // 19. Time.is
             { 
                 name: "Time.is", 
-                desc: "7百萬個地點, 59種的語言, 全與原子鍾隨時對時中", 
+                desc: "與原子鐘同步的精準世界時間", 
                 url: "https://time.is/", 
                 bgColor: "#CC3355",
                 image: "images/timeis.png" 
@@ -167,7 +167,7 @@ const bookmarksData = [
             // 21. Gemini
             { 
                 name: "Gemini", 
-                desc: "認識 Google AI 助理 Gemini，輕鬆撰寫內容、擬訂計畫、腦力激盪等。", 
+                desc: "Google AI 助理：寫作、規劃、腦力激盪", 
                 url: "https://gemini.google.com/app", 
                 image: "images/gemini.svg", 
                 bgColor: "#F0F4F9", 
@@ -176,14 +176,14 @@ const bookmarksData = [
             // 22. Keep
             { 
                 name: "Keep", 
-                desc: "Google Keep 讓您隨時記錄想法，無論是數位記事、清單、相片、繪圖還是語音檔，都能輕鬆保存與分享。", 
+                desc: "隨手記錄想法、清單、相片與語音", 
                 url: "https://keep.google.com/", 
                 image: "images/googlekeep.jpeg" 
             },
             // 23. Gmail
             {
                 name: "Gmail",
-                desc: "Gmail 現已採用 Gemini AI 技術。歡迎探索全新的郵件撰寫、回覆及整理方式，體驗更智慧安全的收件匣。",
+                desc: "Gemini AI 加持的智慧安全收件匣",
                 url: "https://mail.google.com/mail/u/0/",
                 image: "images/gmail.svg",
                 bgColor: "#ffffff",
@@ -194,12 +194,12 @@ const bookmarksData = [
     {
         category: "OTT",
         items: [
-            { name: "Netflix", desc: "線上觀賞 Netflix（網飛）電影與節目，或直接串流至智慧型電視、遊戲機、PC、Mac、手機、平板電腦等多種裝置。", url: "https://www.netflix.com/browse", image: "images/netflix.png", bgColor: "#24292e" },
-            { name: "Disney+", desc: "賣座鉅片、原創作品、韓劇、動畫等精彩內容等您看！迪士尼、皮克斯、漫威、星際大戰、國家地理與 Hulu，盡在此處", url: "https://www.disneyplus.com/zh-hant/select-profile", image: "images/disney+.png"},
+            { name: "Netflix", desc: "線上觀賞 Netflix 電影與節目", url: "https://www.netflix.com/browse", image: "images/netflix.png", bgColor: "#24292e" },
+            { name: "Disney+", desc: "迪士尼、皮克斯、漫威、星戰與國家地理", url: "https://www.disneyplus.com/zh-hant/select-profile", image: "images/disney+.png"},
             // 3. hami video
             { 
                 name: "Hami Video", 
-                desc: "Hami Video 台灣影視品牌No.1，電影內容最多元、獨家搶先戲劇、新番動漫不漏接。", 
+                desc: "台灣影視 No.1：電影、戲劇、新番動漫", 
                 url: "https://hamivideo.hinet.net/%E5%BD%B1%E5%8A%87%E9%A4%A8%E2%81%BA/%E5%8B%95%E6%BC%AB/%E6%8E%A8%E8%96%A6.do", 
                 image: "images/hamivideo.png",
                 bgColor: "#FFFFFF", 
@@ -220,14 +220,14 @@ const bookmarksData = [
             },
             { 
                 name: "京東 (JD)", 
-                desc: "专业的综合网上购物商城，为您提供正品低价的购物选择、优质便捷的服务体验。", 
+                desc: "正品低价的综合网上购物商城", 
                 url: "https://www.jd.com/", 
                 image: "images/jd.png", 
                 bgColor: "#FF301A"
             },
             { 
                 name: "淘寶", 
-                desc: "淘寶（Taobao）是面向全球的綜合性電商平台，匯聚數億熱銷好貨。", 
+                desc: "面向全球的綜合性電商平台", 
                 url: "https://world.taobao.com/", 
                 image: "images/taobao.png", 
                 bgColor: "#FF5000", 
@@ -239,7 +239,7 @@ const bookmarksData = [
                 image: "images/amazon.png"            },
             { 
                 name: "Mercari", 
-                desc: "メルカリは誰でも安心して簡単に売り買いが楽しめる日本最大のフリマサービスです。", 
+                desc: "日本最大的フリマサービス", 
                 url: "https://jp.mercari.com/", 
                 image: "images/mercari.png", 
                 bgColor: "#E32B36"
